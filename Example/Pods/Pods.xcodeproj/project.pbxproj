@@ -19,8 +19,8 @@
 		734E55666115F155DCA918085E7F7500 /* Pods-HCDialogAlertView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F8203D9292F6979408E44421CF8501 /* Pods-HCDialogAlertView_Example-dummy.m */; };
 		7481DADA0E6A1BA9CA24FD9A0C2C578C /* HCDialogAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC05B1EF7F81ED13135E40BE53BA7EA /* HCDialogAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75382BF7973089A3891AA5C48D0BF54C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA28102849D14C877D77DCA50198664 /* Foundation.framework */; };
-		7AA79AC5251DE7C9004A25ED /* HCDialogAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79AC3251DE7C9004A25ED /* HCDialogAlertView.h */; };
-		7AA79AC6251DE7C9004A25ED /* HCDialogAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79AC4251DE7C9004A25ED /* HCDialogAlertView.m */; };
+		7AA79AD5251DFA7D004A25ED /* HCDialogAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79AD3251DFA7D004A25ED /* HCDialogAlertView.m */; };
+		7AA79AD6251DFA7D004A25ED /* HCDialogAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79AD4251DFA7D004A25ED /* HCDialogAlertView.h */; };
 		7FC00E76D4A8668FFD1A6649CD76C269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA28102849D14C877D77DCA50198664 /* Foundation.framework */; };
 		A6B4929FDCD1D01F2FA5E537876F1F8B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53BD5C2528188E6ED5BCB5507135470 /* CoreText.framework */; };
 		B31E46FDEA9EBE810D6789F05BBF02AC /* Pods-HCDialogAlertView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D86C4B3D03380C6D2A730C49319A58 /* Pods-HCDialogAlertView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,8 +87,8 @@
 		5A1C90D56EF5EC0356757C859DFA62F2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6F06725B597230CD3581B6DF67D6B199 /* TTTAttributedLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTTAttributedLabel-umbrella.h"; sourceTree = "<group>"; };
 		704EAAED81B581D138A831BAE11176E5 /* Pods-HCDialogAlertView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HCDialogAlertView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7AA79AC3251DE7C9004A25ED /* HCDialogAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCDialogAlertView.h; sourceTree = "<group>"; };
-		7AA79AC4251DE7C9004A25ED /* HCDialogAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCDialogAlertView.m; sourceTree = "<group>"; };
+		7AA79AD3251DFA7D004A25ED /* HCDialogAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCDialogAlertView.m; path = HCDialogAlertView/HCDialogAlertView.m; sourceTree = "<group>"; };
+		7AA79AD4251DFA7D004A25ED /* HCDialogAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCDialogAlertView.h; path = HCDialogAlertView/HCDialogAlertView.h; sourceTree = "<group>"; };
 		7CEE57D357AAA450065515BD7562C438 /* Pods-HCDialogAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HCDialogAlertView_Example.modulemap"; sourceTree = "<group>"; };
 		871E22FA4A02E2BF6E9548CA6057A5FD /* TTTAttributedLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TTTAttributedLabel-Info.plist"; sourceTree = "<group>"; };
 		90D295BCC2677CE1EB84597F0EB2E055 /* Pods-HCDialogAlertView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HCDialogAlertView_Tests-Info.plist"; sourceTree = "<group>"; };
@@ -305,8 +305,8 @@
 		F521D3464084DD0177F7DFA06ED7F940 /* HCDialogAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				7AA79AC3251DE7C9004A25ED /* HCDialogAlertView.h */,
-				7AA79AC4251DE7C9004A25ED /* HCDialogAlertView.m */,
+				7AA79AD4251DFA7D004A25ED /* HCDialogAlertView.h */,
+				7AA79AD3251DFA7D004A25ED /* HCDialogAlertView.m */,
 				03170B0915A8FF2BCFEEED3969EED4CF /* Pod */,
 				29994AFBE16B8EA406503A47210597EF /* Support Files */,
 			);
@@ -322,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7481DADA0E6A1BA9CA24FD9A0C2C578C /* HCDialogAlertView-umbrella.h in Headers */,
-				7AA79AC5251DE7C9004A25ED /* HCDialogAlertView.h in Headers */,
+				7AA79AD6251DFA7D004A25ED /* HCDialogAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,8 +504,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AA79AD5251DFA7D004A25ED /* HCDialogAlertView.m in Sources */,
 				2E6D1930C1349C8A576C2D319B2EAB16 /* HCDialogAlertView-dummy.m in Sources */,
-				7AA79AC6251DE7C9004A25ED /* HCDialogAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

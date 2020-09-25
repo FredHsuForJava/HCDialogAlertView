@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files  = "HCDialogAlertView/**/*"
+  s.source_files  = 'HCDialogAlertView', 'HCDialogAlertView/**/*.{h,m}'
   s.requires_arc  = true
   # s.resource_bundles = {
   #   'HCDialogAlertView' => ['HCDialogAlertView/Assets/*.png']
