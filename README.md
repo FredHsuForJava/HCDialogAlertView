@@ -16,9 +16,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 HCDialogAlertView is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-```ruby
+ruby
 pod 'HCDialogAlertView'
-```
 
 ## Author
 
@@ -27,3 +26,5 @@ xuwenfeng, xuwf@bsoft.com.cn
 ## License
 
 HCDialogAlertView is available under the MIT license. See the LICENSE file for more info.
+# HCAlertDialogHandler
+支持富文本以及自定义view的弹出框
