@@ -1,0 +1,24 @@
+PODS:
+  - HCDialogAlertView (0.1.0):
+    - TTTAttributedLabel
+  - TTTAttributedLabel (2.0.0)
+
+DEPENDENCIES:
+  - HCDialogAlertView (from `../`)
+  - TTTAttributedLabel
+
+SPEC REPOS:
+  trunk:
+    - TTTAttributedLabel
+
+EXTERNAL SOURCES:
+  HCDialogAlertView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HCDialogAlertView: 7ded7b2bf7ded0154474d90c2a6a6e469558ac75
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+
+PODFILE CHECKSUM: cab760cc00368739b622779b389062e9d3314b59
+
+COCOAPODS: 1.8.4
