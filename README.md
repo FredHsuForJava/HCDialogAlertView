@@ -1,0 +1,2 @@
+# HCAlertDialogHandler
+支持富文本以及自定义view的弹出框
