@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HCDialogAlertView'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'An Alert Diaglog that can show coreText and View, this is easy for user to show something.'
 
 # This description is used to generate tags and improve search results.
