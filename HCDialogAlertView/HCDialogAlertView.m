@@ -182,7 +182,7 @@
     [_items addObject:item];
     return [_items indexOfObject:title];
 }
-- (void)addButton:(ButtonType)type withTitle:(NSString *)title handler:(HCAlertDialogHandler)handler{
+- (void)addButton:(HCButtonType)type withTitle:(NSString *)title handler:(HCAlertDialogHandler)handler{
     HCAlertDialogItem *item = [[HCAlertDialogItem alloc] init];
     item.title = title;
     item.action = handler;

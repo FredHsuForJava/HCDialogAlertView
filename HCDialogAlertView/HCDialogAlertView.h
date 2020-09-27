@@ -10,14 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum ButtonType
+typedef enum HCButtonType
 {
     Button_OK,
     Button_CANCEL,
     Button_OTHER,
     Button_NoDismiss
     
-}ButtonType;
+}HCButtonType;
 
 @class HCAlertDialogItem;
 typedef void(^HCAlertDialogHandler)(HCAlertDialogItem *item);
@@ -56,7 +56,7 @@ typedef void(^HCAlertMessageTapHandler)(NSString *url);
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message;
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message canScroll:(BOOL)canScroll;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
-- (void)addButton:(ButtonType)type withTitle:(NSString *)title handler:(HCAlertDialogHandler)handler;
+- (void)addButton:(HCButtonType)type withTitle:(NSString *)title handler:(HCAlertDialogHandler)handler;
 - (void)show;
 - (void)dismiss;
 
@@ -66,7 +66,7 @@ typedef void(^HCAlertMessageTapHandler)(NSString *url);
 
 @interface HCAlertDialogItem : NSObject
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic) ButtonType type;
+@property (nonatomic) HCButtonType type;
 @property (nonatomic) NSUInteger tag;
 @property (nonatomic, copy) HCAlertDialogHandler action;
 @end
