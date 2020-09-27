@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'HCDialogAlertView'
   s.version          = '0.0.2'
-  s.summary          = 'A short description of HCDialogAlertView.'
+  s.summary          = 'An Alert Diaglog that can show coreText and View, this is easy for user to show something.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'Add long description of the pod here.'
+#  s.description      = 'Add long description of the pod here.'
 
   s.homepage         = 'https://github.com/FredHsuForJava/HCAlertDialogHandler'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
