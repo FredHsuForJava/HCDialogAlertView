@@ -27,7 +27,8 @@ typedef void(^HCAlertMessageTapHandler)(NSString *url);
 @interface HCDialogAlertView : UIView<TTTAttributedLabelDelegate>
 {
     UIView *_coverView;
-    UIView *_alertView;
+    UIScrollView *_alertView;
+    UIView *_mainView;
     UILabel *_labelTitle;
 //    UILabel *_labelmessage1;
     

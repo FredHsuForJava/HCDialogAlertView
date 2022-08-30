@@ -46,13 +46,14 @@
     _coverView.alpha = 0;
 
     [self addSubview:_coverView];
-    
-    _alertView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, AlertWidth, AlertHeight)];
-    _alertView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-    _alertView.layer.cornerRadius = 5;
-    _alertView.layer.masksToBounds = YES;
-    _alertView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:_alertView];
+    _mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, AlertWidth, AlertHeight)];
+    _alertView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, AlertWidth, AlertHeight-MenuHeight)];
+    _mainView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    _mainView.layer.cornerRadius = 5;
+    _mainView.layer.masksToBounds = YES;
+    _mainView.backgroundColor = [UIColor whiteColor];
+    [_mainView addSubview:_alertView];
+    [self addSubview:_mainView];
   
     //title
     CGFloat labelHeigh = [self heightWithString:_title fontSize:17 width:AlertWidth-2*AlertPadding];
@@ -69,7 +70,7 @@
     CGFloat messageHeigh = [self heightWithString:_message fontSize:14 width:AlertWidth-2*AlertPadding];
 
     if (self.canScroll) {
-        _labelmessage =  [[TTTAttributedLabel alloc]initWithFrame:CGRectMake(AlertPadding, _labelTitle.frame.origin.y+_labelTitle.frame.size.height, AlertWidth-2*AlertPadding, messageHeigh+2*AlertPadding)];
+        _labelmessage =  [[TTTAttributedLabel alloc]initWithFrame:CGRectMake(AlertPadding, _labelTitle.frame.origin.y+_labelTitle.frame.size.height+2*AlertPadding, AlertWidth-2*AlertPadding, messageHeigh+2*AlertPadding)];
             _labelmessage.font = [UIFont systemFontOfSize:14];
         //    _labelmessage.textColor = [UIColor blackColor];
         
@@ -127,8 +128,8 @@
 
 }
 -(void)layoutSubviews{
-    _buttonScrollView.frame = CGRectMake(0, _alertView.frame.size.height-MenuHeight,_alertView.frame.size.width, MenuHeight);
-    _contentScrollView.frame = CGRectMake(0, _labelTitle.frame.origin.y+_labelTitle.frame.size.height, _alertView.frame.size.width, _alertView.frame.size.height-MenuHeight);
+    _buttonScrollView.frame = CGRectMake(0, _mainView.frame.size.height-MenuHeight,_mainView.frame.size.width, MenuHeight);
+    _contentScrollView.frame = CGRectMake(0, _labelTitle.frame.origin.y+_labelTitle.frame.size.height, _mainView.frame.size.width, _mainView.frame.size.height-MenuHeight);
     self.contentView.frame = CGRectMake(0,0,self.contentView.frame.size.width, self.contentView.frame.size.height);
     _contentScrollView.contentSize = self.contentView.frame.size;
 
@@ -139,22 +140,27 @@
     [_contentScrollView addSubview:self.contentView];
     CGFloat plus;
     if (self.contentView) {
-        plus = self.contentView.frame.size.height-(_alertView.frame.size.height-MenuHeight);
+        plus = self.contentView.frame.size.height-(_mainView.frame.size.height-MenuHeight);
     }else{
         if (self.canScroll) {
-             plus = _labelmessage.frame.origin.y+_labelmessage.frame.size.height -(_alertView.frame.size.height-MenuHeight);
+             plus = _labelmessage.frame.origin.y+_labelmessage.frame.size.height -(_mainView.frame.size.height-MenuHeight);
         }else{
-             plus = _labelmessage1.frame.origin.y+_labelmessage1.frame.size.height -(_alertView.frame.size.height-MenuHeight);
+             plus = _labelmessage1.frame.origin.y+_labelmessage1.frame.size.height -(_mainView.frame.size.height-MenuHeight);
         }
        
     }
    if (plus<0) {
         plus = 0;
     }
-    CGFloat height =  MIN([UIScreen mainScreen].bounds.size.height-100,_alertView.frame.size.height+plus);
+    CGFloat height =  MIN([UIScreen mainScreen].bounds.size.height-100,_mainView.frame.size.height+plus);
+    CGFloat msgHeight = [self heightWithString:_message fontSize:14.0 width:AlertWidth];
+    CGFloat mexHeight = MAX([UIScreen mainScreen].bounds.size.height-100,msgHeight);
     
-    _alertView.frame = CGRectMake(_alertView.frame.origin.x, _alertView.frame.origin.y, AlertWidth, height);
-    _alertView.center = self.center;
+    _mainView.frame = CGRectMake(_mainView.frame.origin.x, _mainView.frame.origin.y, AlertWidth, height);
+    _alertView.frame = CGRectMake(0, 0, AlertWidth, height-MenuHeight);
+    _mainView.center = self.center;
+    [_alertView setContentSize:CGSizeMake(AlertWidth, mexHeight)];
+
     [self setNeedsDisplay];
     [self setNeedsLayout];
 
@@ -191,7 +197,7 @@
     item.tag = [_items indexOfObject:item];
 }
 - (void)addButtonItem {
-    _buttonScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, _alertView.frame.size.height- MenuHeight,AlertWidth, MenuHeight)];
+    _buttonScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, _mainView.frame.size.height- MenuHeight,AlertWidth, MenuHeight)];
     _buttonScrollView.bounces = NO;
     _buttonScrollView.showsHorizontalScrollIndicator = NO;
     _buttonScrollView.showsVerticalScrollIndicator =  NO;
@@ -229,7 +235,7 @@
 
         [_buttonScrollView addSubview:button];
     }];
-    [_alertView addSubview:_buttonScrollView];
+    [_mainView addSubview:_buttonScrollView];
     
 }
 
@@ -290,13 +296,13 @@
     popAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [_alertView.layer addAnimation:popAnimation forKey:nil];
+    [_mainView.layer addAnimation:popAnimation forKey:nil];
 }
 
 - (void)hideAnimation{
     [UIView animateWithDuration:0.4 animations:^{
         self->_coverView.alpha = 0.0;
-        self->_alertView.alpha = 0.0;
+        self->_mainView.alpha = 0.0;
         
     } completion:^(BOOL finished) {
          [self removeFromSuperview];
